@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+.search-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+.search-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.user-actions a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #000;
+}
+main {
+    padding: 20px;
+}
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.product-grid {
+    display: flex; /* Change to flex for horizontal display */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between; /* Space cards evenly */
+    gap: 20px;
+}
+.product-card {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    flex: 1 0 200px; /* Give each card a minimum width */
+}
+.product-image {
+    max-width: 100%;
+    height: auto;
+}
+.product-title {
+    font-size: 14px;
+    margin: 10px 0;
+}
+.product-price {
+    font-weight: bold;
+    color: #000;
+}
+.product-original-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+.product-discount {
+    color: #3498db;
+    font-size: 12px;
+}
+.product-rating {
+    color: #3498db;
+    font-size: 12px;
+}
+.product-seller {
+    font-size: 12px;
+    color: #3498db;
+}
+.free-delivery {
+    background-color: #3498db;
+    color: white;
+    padding: 2px 5px;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.product-card-link {
+    
+    color: inherit;
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    flex: 1 0 200px; /* Give each card a minimum width */
+}
+
+
+.product-link {
+    display: block; /* Make the link a block element */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the current text color */
+    padding: 10px; /* Add padding for better click area */
+}
+
+.product-link:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
