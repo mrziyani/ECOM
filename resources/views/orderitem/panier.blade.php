@@ -39,7 +39,11 @@
     <div class="cart-container">
         <p>Status: {{ $order->bought ? 'Bought' : 'Not Bought' }}</p>
         <p>Total Amount: {{ $order->total_amount }} Dhs</p>
-
+        <form action="{{ route('order.confirm', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to confirm this order?');">
+                                @csrf
+                               
+                                <button type="submit" class="remove-item"><i class="trash-icon"></i> Confirm</button>
+                            </form>
         <h3 class="cart-title">Order Items:</h3>
 
         @if($order->orderItems->isEmpty())

@@ -32,6 +32,8 @@ Route::get('/orderitem/panier', [orderitemController::class, 'panier'])->name('o
 Route::delete('/orderitem/{id}', [OrderItemController::class, 'delete'])->name('orderitem.delete');
 
 
+//order
+Route::post('/order/confirm/{id}', [orderController::class, 'confirm'])->name('order.confirm');
 
 //USER
 
