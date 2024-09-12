@@ -151,6 +151,13 @@ public function buy(Request $request, $id)
     // Get the quantity from the request, default to 1 if not provided
     $quantity = $request->input('quantity', 1);
 
+    // Check if there is enough stock
+    if ($quantity > $product->stock) {
+        // Flash error message to session
+        session()->flash('error', 'Not enough stock available for this product.');
+        return redirect()->route('orderitem.panier');
+    }
+
     // Calculate the total amount for this purchase
     $totalAmount = $product->price * $quantity;
 

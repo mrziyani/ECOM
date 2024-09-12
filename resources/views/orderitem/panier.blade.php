@@ -29,7 +29,7 @@
 
 <main>
     <h1 class="cart-title">Your Cart</h1> <!-- Reuse 'cart-title' class for consistency -->
-
+    
     @if($orders->isEmpty())
         <p>No orders found.</p>
     @else
@@ -87,7 +87,17 @@
     @endif
 </main>
 
+@if(session('error'))
+    <script>
+        alert('{{ session('error') }}'); // Display error message
+    </script>
+@endif
 
+@if(session('success'))
+    <script>
+        alert('{{ session('success') }}'); // Display success message
+    </script>
+@endif
 
 </body>
 </html>
