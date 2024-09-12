@@ -39,10 +39,42 @@
                 <p class="product-availability">{{ $product->stock > 0 ? 'Disponible' : 'Indisponible' }}</p>
                 <p class="product-delivery">Livraison gratuite (vous économisez 22.00 Dhs) vers CASABLANCA - Anfa</p>
                 <div class="product-rating">★★★★☆ ({{ $product->reviews_count }} avis vérifiés)</div>
-                
-                <a href="#" class="buy-button">J'ACHÈTE</a>
+                <div class="quantity-input">
+                    <button id="decrease" class="quantity-button">-</button>
+                    <span id="quantity" class="quantity-display">1</span>
+                    <button id="increase" class="quantity-button">+</button>
+                </div>
+                <a href="{{ route('product.buy', ['id' => $product->product_id, 'quantity' => 1]) }}" class="buy-button" id="buy-button">BUY</a>
             </div>
         </div>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    let quantity = 1; // Initial quantity
+    const quantityDisplay = document.getElementById('quantity');
+    const buyButton = document.getElementById('buy-button');
+
+    document.getElementById('increase').addEventListener('click', function () {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+        updateBuyButtonLink();
+    });
+
+    document.getElementById('decrease').addEventListener('click', function () {
+        if (quantity > 1) { // Prevent going below 1
+            quantity--;
+            quantityDisplay.textContent = quantity;
+            updateBuyButtonLink();
+        }
+    });
+
+    function updateBuyButtonLink() {
+        // Update the buy button link with the new quantity
+        const productId = {{ $product->product_id }}; // Use Blade syntax to get the product ID
+        buyButton.href = `{{ url('product/buy') }}/${productId}?quantity=` + quantity;
+    }
+});
+</script>
 </body>
 </html>

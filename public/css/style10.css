@@ -120,3 +120,35 @@ main {
 .product-link:hover {
     background-color: #f0f0f0; /* Change background on hover */
 }
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.formsss-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+header {
+    position: fixed; /* Fixes the header to the top */
+    top: 0;         /* Aligns it to the top of the viewport */
+    left: 0;        /* Aligns it to the left of the viewport */
+    width: 98%;    /* Makes the header full width */
+    background-color: #f8f8f8; /* Background color */
+    padding: 10px;  /* Padding for spacing */
+    border-bottom: 1px solid #ccc; /* Bottom border */
+    z-index: 1000;  /* Ensures it stays on top of other content */
+}
+
+body {
+    padding-top: 60px; /* Adds padding at the top so content isn't hidden behind the fixed header */
+}
+

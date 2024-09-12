@@ -2,7 +2,10 @@
 
 // app/Etudiant.php
 
-namespace App;
+
+
+namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,4 +18,9 @@ class Order extends Model
      */
     public $timestamps = false;
     protected $table = 'Orders';
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id');
+    }
 }
