@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Your history of orders</title>
     <link rel="stylesheet" href="{{ asset('css/style13.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -31,7 +31,7 @@
 </header>
 
 <main>
-    <h1 class="cart-title">Your Cart</h1>
+    <h1 class="cart-title">Your history of orders</h1>
 
     @if(session('error'))
     <div class="alert alert-danger" role="alert">
@@ -61,12 +61,7 @@
     <div class="cart-container">
         <p>Status: {{ $order->bought ? 'Bought' : 'Not Bought' }}</p>
         <p>Total Amount: {{ $order->total_amount }} Dhs</p>
-        <form action="{{ route('order.confirm', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to confirm this order?');">
-            @csrf
-            <div class="confirm-button">
-                <button type="submit" class="confirm-item"><i class="trash-icon"></i> Confirm</button>
-            </div>
-        </form>
+        
         <h3 class="cart-title">Order Items:</h3>
 
         @if($order->orderItems->isEmpty())
@@ -97,13 +92,7 @@
                             <input type="text" value="{{ $item->quantity }}" class="quantity-input" readonly>
                         </div>
 
-                        <div class="remove-button">
-                            <form action="{{ route('orderitem.delete', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="remove-item"><i class="trash-icon"></i> SUPPRIMER</button>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             @endforeach

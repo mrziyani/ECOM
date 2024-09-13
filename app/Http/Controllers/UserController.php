@@ -23,7 +23,40 @@ class UserController extends Controller
     {
         return view('users.insc');
     }
-    
+
+    public function profil()
+    {
+        $userId = Session::get('user_id');
+        $user = user::where('user_id', $userId)->firstOrFail();
+        return view('users.profil', compact('user'));
+    }
+      public function edit()
+    {
+        $userId = Session::get('user_id');
+        $user = user::where('user_id', $userId)->firstOrFail(); // Find the user by ID
+        return view('users.edit', compact('user')); // Pass user data to the edit view
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' ,
+           
+        ]);
+        $userId = Session::get('user_id');
+        DB::table('userss') // Change 'users' to your actual table name if different
+        ->where('user_id', $userId) // Using user_id for the where clause
+        ->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            
+        ]);
+
+        return redirect()->route('user.profil')->with('success', 'Profile updated successfully!');
+    }
 
     public function afterlogin(Request $request)
     {
@@ -147,25 +180,7 @@ class UserController extends Controller
     }
 
     // Show the form for editing the specified resource.
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
-    }
-
-    // Update the specified resource in storage.
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'username' => 'required|max:255|unique:Users,username,' . $id,
-            'role' => 'required|in:teacher,student',
-        ]);
-
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
-    }
+ 
 
     // Remove the specified resource from storage.
     public function destroy($id)

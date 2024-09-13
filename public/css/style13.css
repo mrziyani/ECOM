@@ -393,3 +393,80 @@ body {
     height: 16px;
     margin-right: 5px;
 }
+
+.confirm-button {
+    text-align: center;
+}
+.confirm-item {
+    background-color: transparent;
+    border: none;
+    color: #3498db;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-empty {
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.icon img {
+    width: 80px; /* Adjust the size as needed */
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.start-shopping {
+    background-color: #3498db; /* Orange color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.start-shopping:hover {
+    background-color: #3498db; /* Darker shade on hover */
+}
+
+.ok-button {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it behave like a button */
+    transition: background-color 0.3s;
+}
+
+.ok-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

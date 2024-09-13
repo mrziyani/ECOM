@@ -23,12 +23,28 @@ class orderitemController extends Controller
                    ->get();
 
     // If you need to handle the case where there are no orders
-    if ($orders->isEmpty()) {
-        return response()->json(['message' => 'No orders found'], 404);
-    }
+    
 
     // Return the orders to a view
     return view('orderitem.panier', compact('orders'));
+}
+
+public function history()
+{
+    // Get the user ID from the session
+    $userId = Session::get('user_id');
+
+    // Fetch all orders for the user where bought is false
+    $orders = Order::where('user_id', $userId)
+                   ->where('bought', true)
+                   ->with(['orderItems.product']) // Eager load order items and their products
+                   ->get();
+
+    // If you need to handle the case where there are no orders
+    
+
+    // Return the orders to a view
+    return view('orderitem.history', compact('orders'));
 }
 
 public function delete($id)
@@ -60,5 +76,16 @@ public function delete($id)
     // Redirect back to the cart or order summary page
     return redirect()->route('orderitem.panier');
 }
+
+public function confirmed()
+{
+    // Get the user ID from the session
+   
+
+    // Return the orders to a view
+    return view('orderitem.confirmed');
+}
+
+
 }
 

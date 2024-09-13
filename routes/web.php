@@ -30,7 +30,8 @@ Route::get('/product/buy/{id}', [ProductController::class, 'buy'])->name('produc
 //orderitem
 Route::get('/orderitem/panier', [orderitemController::class, 'panier'])->name('orderitem.panier');
 Route::delete('/orderitem/{id}', [OrderItemController::class, 'delete'])->name('orderitem.delete');
-
+Route::get('/orderitem/confirmed', [orderitemController::class, 'confirmed'])->name('orderitem.confirmed');
+Route::get('/orderitem/history', [orderitemController::class, 'history'])->name('orderitem.history');
 
 //order
 Route::post('/order/confirm/{id}', [orderController::class, 'confirm'])->name('order.confirm');
@@ -43,3 +44,7 @@ Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
 Route::get('/user/insc', [UserController::class, 'insc'])->name('user.insc');
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 Route::post('/user/afterlogin', [UserController::class, 'afterlogin'])->name('users.afterlogin');
+
+Route::get('/user/profil', [UserController::class, 'profil'])->name('user.profil');
+Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');

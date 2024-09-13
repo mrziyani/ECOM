@@ -1,0 +1,235 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.profile-header {
+    margin-top: 20px;
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.about {
+    background-color: #4a69bd;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+.details {
+    margin-top: 30px;
+}
+.social-icons {
+    margin-top: 20px;
+}
+.social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+.search-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+.search-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.user-actions a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #000;
+}
+main {
+    padding: 20px;
+}
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.product-grid {
+    display: flex; /* Change to flex for horizontal display */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between; /* Space cards evenly */
+    gap: 20px;
+}
+.product-card {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    flex: 1 0 200px; /* Give each card a minimum width */
+}
+.product-image {
+    max-width: 100%;
+    height: auto;
+}
+.product-title {
+    font-size: 14px;
+    margin: 10px 0;
+}
+.product-price {
+    font-weight: bold;
+    color: #000;
+}
+.product-original-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+.product-discount {
+    color: #3498db;
+    font-size: 12px;
+}
+.product-rating {
+    color: #3498db;
+    font-size: 12px;
+}
+.product-seller {
+    font-size: 12px;
+    color: #3498db;
+}
+.free-delivery {
+    background-color: #3498db;
+    color: white;
+    padding: 2px 5px;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.product-card-link {
+    
+    color: inherit;
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    flex: 1 0 200px; /* Give each card a minimum width */
+}
+
+
+.product-link {
+    display: block; /* Make the link a block element */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the current text color */
+    padding: 10px; /* Add padding for better click area */
+}
+
+.product-link:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.formsss-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+header {
+    position: fixed; /* Fixes the header to the top */
+    top: 0;         /* Aligns it to the top of the viewport */
+    left: 0;        /* Aligns it to the left of the viewport */
+    width: 98%;    /* Makes the header full width */
+    background-color: #f8f8f8; /* Background color */
+    padding: 10px;  /* Padding for spacing */
+    border-bottom: 1px solid #ccc; /* Bottom border */
+    z-index: 1000;  /* Ensures it stays on top of other content */
+}
+
+body {
+    padding-top: 60px; /* Adds padding at the top so content isn't hidden behind the fixed header */
+}
+
+
+.profile-header {
+    margin-top: 20px;
+}
+
+.profile-header h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.save-button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+.alert {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
