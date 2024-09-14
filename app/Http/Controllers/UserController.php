@@ -84,13 +84,13 @@ class UserController extends Controller
                     'user_lastname' => $user->lastname,
                 ]);
                 return redirect()->route('product.index'); // Redirect to teacher dashboard
-            } elseif ($user->role == 'Admin') {
+            } elseif ($user->role == 'admin') {
                 session([
                     'user_id' => $user->user_id,
                     'user_name' => $user->firstname,
                     'user_lastname' => $user->lastname,
                 ]);
-                return redirect()->route('product.create'); // Redirect to student dashboard
+                return redirect()->route('product.indexadmin'); // Redirect to student dashboard
             }
         } else {
             // Authentication failed, redirect back with an error message
@@ -129,6 +129,18 @@ class UserController extends Controller
             return back()->withInput()->with('error', 'Failed to create . Please try again.');
         }
     }
+
+    public function disconnect()
+{
+    // Clear specific session variables
+    Session::forget(['user_id', 'user_name', 'user_lastname']);
+
+    // Alternatively, you can destroy the entire session
+    // Session::flush();
+
+    // Redirect to the desired route (e.g., login page)
+    return redirect()->route('user.index')->with('success', 'Vous êtes déconnecté avec succès.');
+}
 
     
    

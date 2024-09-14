@@ -24,6 +24,7 @@
             <a href="{{ route('orderitem.panier') }}">Panier</a>
             <a href="{{ route('orderitem.history') }}">History</a>
             <a href="{{ route('user.profil') }}">Profil</a>
+            <a href="{{ route('user.disconnect') }}">disconnect</a>
 
         </div>
     </div>

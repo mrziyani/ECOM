@@ -24,6 +24,7 @@
             <a href="{{ route('orderitem.panier') }}">Panier</a>
             <a href="{{ route('orderitem.history') }}">History</a>
             <a href="{{ route('user.profil') }}">Profil</a>
+            <a href="{{ route('user.disconnect') }}">disconnect</a>
 
         </div>
     </div>
@@ -71,17 +72,7 @@
 
 
 
-        <div class="product-grid">
-            <div class="product-card">
-            <img src="{{ asset('images/icons/emsi.png') }}"        height="100" width="100" >
-                <h3 class="product-title">Samsung Galaxy A05 - 6.7" - 4GB + 128GB - Noir</h3>
-                <p class="product-price">1,240.00 Dhs</p>
-                <p class="product-original-price">1,425.00 Dhs <span class="product-discount">-13%</span></p>
-                <div class="product-rating">★★★★☆ (26)</div>
-                <div class="product-seller">JUMIA EXPRESS</div>
-            </div>
-            <!-- Repeat the product-card div for other products -->
-        </div>
+        
 
     </main>
 </body>

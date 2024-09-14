@@ -13,6 +13,7 @@ class Product extends Model
      *
      * @var string
      */
+    protected $primaryKey = 'product_id';
     public $timestamps = false;
     protected $table = 'products';
 }

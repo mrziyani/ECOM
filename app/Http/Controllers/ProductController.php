@@ -23,6 +23,15 @@ class ProductController extends Controller
        
     }
 
+    public function indexadmin()
+    {
+        $products = Product::all();
+
+        // Pass the products data to the view
+        return view('products.indexadmin', ['products' => $products]);
+       
+    }
+
     public function create()
     {
         return view('products.create');
@@ -43,7 +52,7 @@ class ProductController extends Controller
 
     // Initialize $imageName
     $imageName = null;
-
+    
     // Check if an image file was uploaded
     if ($request->hasFile('image')) {
         $image = $request->file('image');
@@ -71,7 +80,7 @@ class ProductController extends Controller
     $product->save();
 
     // Redirect or return a view with a success message
-    return redirect()->route('product.index')->with('success', 'Produit ajouté avec succès!');
+    return redirect()->route('product.indexadmin')->with('success', 'Produit ajouté avec succès!');
 }
 
     
@@ -80,6 +89,51 @@ class ProductController extends Controller
     $product = Product::where('product_id', $id)->firstOrFail();
     return view('products.add', compact('product'));
 }
+
+
+public function update($id)
+{
+    $product = Product::where('product_id', $id)->firstOrFail();
+    return view('products.update', compact('product'));
+}
+
+public function afterupdate(Request $request, $id)
+    {
+
+        {
+            // Check for related order items
+            $orderItemsCount = OrderItem::where('product_id', $id)->count();
+            
+            if ($orderItemsCount > 0) {
+                return redirect()->route('product.indexadmin')->with('error', 'Impossible de supprimer le produit. Des commandes y sont liées.');
+            }
+    
+            // Now delete the product
+            $product = Product::findOrFail($id);
+            $product->delete();
+            
+            return redirect()->route('product.indexadmin')->with('success', 'Produit supprimé avec succès!');
+        }
+        // Validate the incoming request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        // Find the product by product_id
+        // Update the product using the DB facade
+    DB::table('products') // Ensure this is the correct table name
+    ->where('product_id', $id) // Use product_id for the where clause
+    ->update([
+        'name' => $request->name,
+        'price' => $request->price,
+        'stock' => $request->stock,
+    ]);
+
+        // Redirect with success message
+        return redirect()->route('product.indexadmin', $id)->with('success', 'Produit mis à jour avec succès!');
+    }
 
 
 public function filterProducts(Request $request)
